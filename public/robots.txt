@@ -1,9 +1,42 @@
+# Search engines
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+# AI search and user-requested retrieval (not model training)
+# https://developers.openai.com/api/docs/bots
+# https://support.claude.com/en/articles/8896518
+# https://docs.perplexity.ai/guides/bots
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# AI model training crawlers, kept separate from search above.
+# Policy unchanged from before this file listed them: the site was already open to every
+# crawler through "User-agent: *". Change Allow to Disallow here to opt out of training only.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Link previews
 User-agent: Twitterbot
 Allow: /
 
