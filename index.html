@@ -4,6 +4,7 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>document.documentElement.classList.add("js")</script>
     <title>Muhammad Luqman Khokhar — Full-Stack Software Engineer (Web &amp; Mobile)</title>
     <link rel="canonical" href="https://muhammadluqmankhokhar.vercel.app/" />
     <meta
@@ -11,6 +12,7 @@
       content="Full-stack software engineer building web apps and store-ready iOS and Android apps with React, Next.js, Node.js and React Native. Available for new projects."
     />
     <meta name="author" content="Muhammad Luqman Khokhar" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 
     <!-- 🕹️ Self-hosted fonts: preload the two the first paint needs -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/melodrama-700.woff2" crossorigin />
@@ -23,6 +25,8 @@
     <meta property="og:title" content="Muhammad Luqman Khokhar — Full-Stack Software Engineer (Web &amp; Mobile)" />
     <meta property="og:description" content="Full-stack software engineer building web apps and store-ready iOS and Android apps with React, Next.js, Node.js and React Native. Available for new projects." />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Muhammad Luqman Khokhar" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://muhammadluqmankhokhar.vercel.app/" />
     <meta property="og:image" content="https://muhammadluqmankhokhar.vercel.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -33,21 +37,10 @@
     <meta name="twitter:title" content="Muhammad Luqman Khokhar — Full-Stack Software Engineer (Web &amp; Mobile)" />
     <meta name="twitter:description" content="Full-stack software engineer building web apps and store-ready iOS and Android apps with React, Next.js, Node.js and React Native. Available for new projects." />
     <meta name="twitter:image" content="https://muhammadluqmankhokhar.vercel.app/og-image.png" />
+    <meta name="twitter:image:alt" content="Muhammad Luqman Khokhar: I build and ship web and mobile products." />
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Muhammad Luqman Khokhar",
-        "jobTitle": "Full-Stack Software Engineer",
-        "url": "https://muhammadluqmankhokhar.vercel.app/",
-        "image": "https://muhammadluqmankhokhar.vercel.app/portrait-gold.webp",
-        "email": "mailto:mluqmangn@gmail.com",
-        "sameAs": ["https://github.com/Luqman-Khokhar", "https://www.linkedin.com/in/mluqmangn/"],
-        "address": { "@type": "PostalAddress", "addressLocality": "Daska", "addressCountry": "PK" },
-        "knowsAbout": ["React", "Next.js", "Node.js", "Express", "MongoDB", "React Native", "Expo", "TypeScript", "Web development", "Mobile app development"]
-      }
-    </script>
+    <!-- 🧬 JSON-LD (Person, WebSite, ProfilePage) is generated from src/data/portfolio.ts by the seo plugin in vite.config.ts -->
+    <!--seo:json-ld-->
 
     <!-- 🧩 Optional: minimal inline critical CSS if needed -->
     <style>
@@ -56,6 +49,11 @@
         font-family: 'General Sans', system-ui, sans-serif;
         background: #08335e;
       }
+      /* Crawler/no-JS content inside #root (see src/seo/snapshot.ts). React replaces it on mount; with JS on it stays out of sight until then. */
+      .seo-snapshot { max-width: 72ch; margin: 0 auto; padding: 2rem 1rem; color: hsl(42 40% 94%); line-height: 1.6; }
+      .seo-snapshot a { color: hsl(40 92% 59%); }
+      .seo-snapshot img { max-width: 100%; height: auto; }
+      .js .seo-snapshot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     </style>
   
 
