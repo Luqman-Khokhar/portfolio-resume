@@ -1,11 +1,13 @@
-import { useRef, useState, type KeyboardEvent } from "react";
-import { useInView } from "framer-motion";
+import { useLayoutEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useInView, useReducedMotion } from "framer-motion";
 import { RiseText, useMediaQuery } from "./primitives";
 import { SkillCards, useSkillCards } from "./SkillCards";
 import { Keycap, type Ripple } from "./Keycap";
 import { ROWS, labelFor, same, shippedIn, type At } from "./keyboardRows";
 
 const RIPPLE_STEP_MS = 35;
+// Scroll the full-screen board holds for before the page moves on.
+const DWELL = "50svh";
 // Too narrow or too short for six rows at once: a function row picks which row of keys is on show.
 const COMPACT_QUERY = "(max-width: 767px), (max-height: 600px)";
 
@@ -26,6 +28,17 @@ export function SkillsKeyboard() {
 
   const board = useRef<HTMLDivElement>(null);
   const shown = useInView(board, { once: true, margin: "-15% 0px" });
+
+  const reduce = useReducedMotion();
+  const stage = useRef<HTMLDivElement>(null);
+  const [stageHeight, setStageHeight] = useState(0);
+  useLayoutEffect(() => {
+    const el = stage.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setStageHeight(el.offsetHeight));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   const press = (at: At) => {
     const proof = ROWS[at.row].proofs[at.col];
@@ -104,7 +117,10 @@ export function SkillsKeyboard() {
 
   return (
     <section id="skills" className="sheet-edge relative -mt-10 bg-graphite text-bone md:-mt-16">
-      <div className="mx-auto max-w-[100rem] px-4 pb-16 pt-24 sm:px-6 md:pb-24 md:pt-32">
+      {/* A full screen that holds for a short dwell, so a scroll can't skim past it. A board taller than the screen sticks by its bottom edge instead. */}
+      <div className="relative" style={reduce ? undefined : { height: `calc(max(100svh, ${stageHeight}px) + ${DWELL})` }}>
+      <div ref={stage} className={`flex min-h-svh flex-col justify-center ${reduce ? "" : "sticky"}`} style={reduce ? undefined : { top: `min(0px, calc(100svh - ${stageHeight}px))` }}>
+      <div className="mx-auto w-full max-w-[100rem] px-4 pb-16 pt-24 sm:px-6 md:pb-20 md:pt-28">
             <div className={twoColumn ? "grid grid-cols-2 items-center gap-x-6" : "flex flex-col"}>
               <header className={compact ? "" : "flex items-end justify-between gap-10"}>
                 <h2 className="font-display text-5xl font-bold leading-[0.9] tracking-[-0.02em] md:text-7xl">
@@ -172,6 +188,8 @@ export function SkillsKeyboard() {
               </div>
             </div>
             <p aria-live="polite" className="sr-only">{said}</p>
+      </div>
+      </div>
       </div>
 
       <SkillCards open={fan} left={left} top={top} cardWidth={cardWidth} />
