@@ -24,7 +24,7 @@ updated: 2026-11-14
 | LinkedIn | https://www.linkedin.com/in/mluqmangn/ |
 | Live site | https://muhammadluqmankhokhar.vercel.app/ |
 | Availability | Remote · PKT (UTC+5) |
-| CV file | `/CV/Muhammad_Luqman_CV_(31Oct2025).pdf.pdf` (in `public/`) |
+| CV file | `/CV/Muhammad_Luqman_Khokhar_Universal_CV.pdf` (in `public/`) |
 | Profile image | `/about-removebg.png` (in `public/`) |
 
 ## 2. Site copy

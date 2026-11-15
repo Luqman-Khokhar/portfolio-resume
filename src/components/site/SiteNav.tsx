@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, type Variants } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Download } from "lucide-react";
 import { identity, navCta, navItems } from "@/data/portfolio";
 import { goToAnchor } from "@/lib/smoothScroll";
 import { Crest } from "./Crest";
@@ -127,6 +127,17 @@ export function SiteNav() {
               </a>
             ))}
           </nav>
+          <a
+            href={identity.cv}
+            download="Muhammad_Luqman_Khokhar_CV.pdf"
+            aria-label="Download CV (PDF)"
+            aria-hidden={open || undefined}
+            tabIndex={open ? -1 : undefined}
+            className={`hidden min-h-11 items-center gap-2 rounded-full border border-current px-4 text-sm font-semibold transition-[background-color,color,opacity] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current focus-visible:ring-offset-2 lg:inline-flex ${HOVER_FINE}:hover:bg-honey ${HOVER_FINE}:hover:text-ink ${HOVER_FINE}:hover:border-honey ${open ? "pointer-events-none opacity-0" : "pointer-events-auto"}`}
+          >
+            <Download aria-hidden="true" className="h-4 w-4" />
+            CV
+          </a>
           <a
             href={navCta.href}
             onClick={(e) => go(e, navCta.href)}
