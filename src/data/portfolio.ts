@@ -13,7 +13,7 @@ export const identity = {
   phoneHref: "tel:+923147551262",
   github: "https://github.com/Luqman-Khokhar",
   linkedin: "https://www.linkedin.com/in/mluqmangn/",
-  cv: "/CV/Muhammad_Luqman_CV_(31Oct2025).pdf.pdf",
+  cv: "/CV/Muhammad_Luqman_Khokhar_Universal_CV.pdf",
   portrait: "/portrait-gold.webp",
   availability: "Remote · PKT (UTC+5)",
   site: "https://muhammadluqmankhokhar.vercel.app/",
